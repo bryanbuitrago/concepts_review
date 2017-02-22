@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Radio Button</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <h1>Radio Buttons!</h1>
+  <p>Do you prefer cats or dogs?</p>
+<!-- by adding the name attribute to the input tag,
+ and by giving it the same name, the user is forced to select only one radio button from the options
+ otherwise, the user can select all of them-->
+  <form action="">
+    <label for="dogs">Dogs:</label>
+    <!-- by adding a value tag, we can send the value information when form is submitted -->
+      <input name="petChoice" id="dogs" type="radio" value="DOGS">
+
+    <label for="cats">Cats:</label>
+      <input name="petChoice" id="cats" type="radio" value="CATS">
+  <!-- putting a button at the bottom of the form will submit the form when clicked -->
+    <button>Go!</button>
+  </form>
+
+  <!-- == Example without adding the name attribute to the input tag ==
+  User can now select all buttons-->
+
+<!--   <form action="">
+    <label for="dogs">Dogs: </label>
+    <input id="dogs" type="radio">
+
+    <label for="cats">Cats:</label>
+    <input id="cats" type="radio">
+    <button>Go!</button>
+  </form> -->
+
+
+  <!-- =====Types of radio buttons ==== -->
+  <!-- radiocan not be turned off after selected -->
+  <!-- <input type="radio"> -->
+
+  <!--Checkbox can be toggled on or off -->
+  <!-- <input type="checkbox"> -->
+</body>
+</html>
