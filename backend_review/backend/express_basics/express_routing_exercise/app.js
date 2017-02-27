@@ -20,6 +20,22 @@ app.get('/speak/:animal', function(req, res) {
   }
 });
 
+app.get('/repeat/:word/:times', function(req, res) {
+  var word = req.params.word;
+  var times = req.params.times;
+  var repeatWord = '';
+  for(var i = 0; i < times; i++) {
+    repeatWord += word + ' ';
+  }
+  res.send(repeatWord);
+});
+
+app.get('*', function(req, res) {
+  // console.log(req.params[0]);
+  var unknownRoute = req.params[0]; // gets the wrong route the user was trying to access
+  res.send(`Sorry, the page "${unknownRoute}" was not found... What are you doing with your life?`);
+})
+
 app.listen(3000, function() {
   console.log('Listening on port 3000!');
-})
+});
