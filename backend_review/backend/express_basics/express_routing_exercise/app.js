@@ -6,18 +6,32 @@ app.get('/', function(req, res) {
 });
 
 app.get('/speak/:animal', function(req, res) {
-  var animal = req.params.animal;
-  if(animal === 'pig') {
-    res.send(`The ${animal} says Oink`);
-  } else if(animal === 'cow') {
-    res.send(`The ${animal} says Moo`);
-  } else if(animal === 'dog') {
-    res.send(`The ${animal} says Woof Woof!`);
-  } else if(animal === 'cat') {
-    res.send(`The ${animal} says Meow`);
-  } else if(animal === 'lion') {
-    res.send(`The ${animal} says Roar`);
+  // ====== SECOND SOLUTION ======
+  var sounds = {
+    pig: 'Oink',
+    cow: 'Moo',
+    dog: 'Woof Woof!',
+    cat: 'Meow',
+    lion: 'Roar'
   }
+  var animal = req.params.animal;
+  var sound = sounds[animal];
+  console.log(sound);
+  res.send(`The ${animal} says ${sound}`);
+
+  // ====== FIRST SOLUTION =====
+  // var animal = req.params.animal;
+  // if(animal === 'pig') {
+  //   res.send(`The ${animal} says Oink`);
+  // } else if(animal === 'cow') {
+  //   res.send(`The ${animal} says Moo`);
+  // } else if(animal === 'dog') {
+  //   res.send(`The ${animal} says Woof Woof!`);
+  // } else if(animal === 'cat') {
+  //   res.send(`The ${animal} says Meow`);
+  // } else if(animal === 'lion') {
+  //   res.send(`The ${animal} says Roar`);
+  // }
 });
 
 app.get('/repeat/:word/:times', function(req, res) {
