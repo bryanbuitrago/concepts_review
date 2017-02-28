@@ -1,14 +1,17 @@
-var express = require("express");
-var app = express();
+var express = require("express"); // require express
+var app = express(); // set app to express
+
+app.use(express.static('public')); // look inside the public folder for static css or js files
+app.set('view engine', 'ejs'); // sets the views engine to ejs
 
 app.get('/', function(req, res) {
-  res.render('home.ejs');
+  res.render('home');
 });
 
 app.get('/fallinlovewith/:thing', function(req, res) {
   var thing = req.params.thing;
   // res.send(`You fell in loe with ${thing}!`);
-  res.render('love.ejs', { thing });
+  res.render('love', { thing });
 });
 
 app.get('/posts', function(req, res) {
@@ -18,7 +21,7 @@ app.get('/posts', function(req, res) {
     {title: 'I need to meditate', author: 'The Buddha'}
   ];
 
-  res.render('posts.ejs', { posts });
+  res.render('posts', { posts });
 
 });
 
