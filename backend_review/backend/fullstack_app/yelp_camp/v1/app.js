@@ -9,7 +9,12 @@ app.set('view engine', 'ejs');
 var campgrounds = [
   {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
   {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'},
-  {name: 'Mountain Goat\'s Rest', image:'https://www.mindmeister.com/images/download/3047364'}
+  {name: 'Mountain Goat\'s Rest', image:'https://www.mindmeister.com/images/download/3047364'},
+  {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
+  {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'},
+  {name: 'Mountain Goat\'s Rest', image:'https://www.mindmeister.com/images/download/3047364'},
+  {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
+  {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'}
 ];
 
 app.get('/', (req, res) => {
@@ -36,5 +41,5 @@ app.get('/campgrounds/new', (req, res) => { //shows the form that sends the data
 });
 
 app.listen(port, ()=> {
-  console.log(`listening on port ${port}!`) ;
+  console.log(`listening on port ${port}!`);
 });
