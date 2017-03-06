@@ -1,10 +1,33 @@
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 3000;
-var bodyParser = require('body-parser');
+var express     = require('express'),
+    app         = express(),
+    port        = process.env.PORT || 3000,
+    bodyParser  = require('body-parser'),
+    mongoose    = require('mongoose')
 
+mongoose.connect('mongodb://localhost/yelp_camp');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+
+// SCHEMA SETUP
+var campgroundSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+var Campground = mongoose.model('Campground', campgroundSchema);
+
+Campground.create(
+  {
+    name: 'Granite Hill',
+    image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'
+  }, function(err, campground) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('NEWLY CREATED CAMPGROUND: ');
+      console.log(campground);
+    }
+  });
 
 var campgrounds = [
   {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
