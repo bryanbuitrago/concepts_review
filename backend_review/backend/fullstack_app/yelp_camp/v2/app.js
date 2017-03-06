@@ -16,36 +16,33 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model('Campground', campgroundSchema);
 
-Campground.create(
-  {
-    name: 'Granite Hill',
-    image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'
-  }, function(err, campground) {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('NEWLY CREATED CAMPGROUND: ');
-      console.log(campground);
-    }
-  });
+// Campground.create(
+//   {
+//     name: 'Granite Hill',
+//     image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'
+//   }, function(err, campground) {
+//     if(err) {
+//       console.log(err);
+//     } else {
+//       console.log('NEWLY CREATED CAMPGROUND: ');
+//       console.log(campground);
+//     }
+//   });
 
-var campgrounds = [
-  {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
-  {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'},
-  {name: 'Mountain Goat\'s Rest', image:'https://www.mindmeister.com/images/download/3047364'},
-  {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
-  {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'},
-  {name: 'Mountain Goat\'s Rest', image:'https://www.mindmeister.com/images/download/3047364'},
-  {name: 'Salmon Creek', image: 'http://cdn-jpg2.theactivetimes.net/sites/default/files/camping.jpg'},
-  {name: 'Granite Hill', image: 'http://i742.photobucket.com/albums/xx62/wanderingSoul_photos/camping_kashmir.jpg'}
-];
 
 app.get('/', (req, res) => {
   res.render('landing');
 });
 
 app.get('/campgrounds', (req, res) => {
-    res.render('campgrounds', { campgrounds });
+    // Get all campgrounds from DB
+    Campground.find({}, (err, allCampgrounds) => {
+      if(err) {
+        console.log(err);
+      } else {
+        res.render('campgrounds', { campgrounds: allCampgrounds });
+      }
+    });
 });
 
 app.post('/campgrounds', (req, res) => { // route to create a new campground
