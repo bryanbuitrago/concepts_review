@@ -51,9 +51,14 @@ app.post('/campgrounds', (req, res) => { // route to create a new campground
   var name = req.body.name;
   var image = req.body.image;
   var newCampground = {name: name, image: image};
-  campgrounds.push(newCampground);
-  // redirect back to campgrounds page
-  res.redirect('/campgrounds');
+  Campground.create(newCampground, (err, newlyCreated) => {
+    if(err) {
+      console.log(err);
+    } else {
+      // redirect back to campgrounds page
+      res.redirect('/campgrounds');
+    }
+  });
 });
 
 app.get('/campgrounds/new', (req, res) => { //shows the form that sends the data to the post route
