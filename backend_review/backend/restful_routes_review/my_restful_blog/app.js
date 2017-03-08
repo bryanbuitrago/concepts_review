@@ -26,10 +26,12 @@ var Blog = mongoose.model('Blog', blogSchema);
 //   body: 'HELLO, THIS IS A BLOG POST!'
 // });
 
+// RESTFUL ROUTES
 app.get('/', (req, res) => {
   res.redirect('/blogs');
 });
 
+// INDEX ROUTE
 app.get('/blogs', (req, res) => {
   Blog.find({}, (err, blogs) => {
     if(err) {
@@ -39,12 +41,12 @@ app.get('/blogs', (req, res) => {
     }
   });
 });
-// RESTUL ROUTES
-// title
-// image
-// body
-// created
 
+// NEW ROUTE
+
+app.get('/blogs/new', (req, res) => {
+  res.render('new');
+})
 
 
 app.listen(port, ()=> {
