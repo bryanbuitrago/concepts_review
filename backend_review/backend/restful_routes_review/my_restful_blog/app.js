@@ -45,7 +45,6 @@ app.get('/blogs', (req, res) => {
 });
 
 // NEW ROUTE
-
 app.get('/blogs/new', (req, res) => {
   res.render('new');
 });
@@ -97,6 +96,17 @@ app.put('/blogs/:id', (req, res) => {
   });
 });
 
+app.delete('/blogs/:id', (req, res) => {
+  // res.send('YOU HAVE REACHED THE DESTROY ROUTE!');
+  // destroy blog
+  Blog.findByIdAndRemove(req.params.id, (req, res) => {
+    if(err) {
+        res.redirect('/blogs');
+    } else {
+        res.redirect('/blogs');
+    }
+  });
+});
 
 app.listen(port, ()=> {
   console.log(`Listening on PORT: ${port}!`);
