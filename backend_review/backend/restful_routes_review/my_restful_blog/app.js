@@ -1,5 +1,5 @@
 var bodyParser   = require('body-parser'),
-expressSanitizer = require('express-sanitzer'),
+expressSanitizer = require('express-sanitizer'),
 methodOverride   = require('method-override'),
 mongoose         = require('mongoose'),
 express          = require('express'),
@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/restful_blog_app');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(expressSanitizer());
+app.use(expressSanitizer()); // must go after bodyParser
 app.use(methodOverride('_method'));
 
 
@@ -56,6 +56,10 @@ app.get('/blogs/new', (req, res) => {
 app.post('/blogs', (req, res) => {
   // create blog
   Blog.create(req.body.blog, (err, newBlog) => {
+    console.log(req.body);
+    // req.body.blog.body = req.sanitize(req.body.blog.body);
+    console.log('============');
+    console.log(req.body);
     if(err){
       res.render('new');
     } else {
@@ -90,6 +94,7 @@ app.get('/blogs/:id/edit', (req, res) => {
 // UPDATE ROUTE
 app.put('/blogs/:id', (req, res) => {
   // res.send('UPDATE ROUTE');
+  req.body.blog.body = req.sanitize(req.body.blog.body);
   Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog) => {
     if(err) {
         res.redirect('/blogs');
@@ -102,7 +107,7 @@ app.put('/blogs/:id', (req, res) => {
 app.delete('/blogs/:id', (req, res) => {
   // res.send('YOU HAVE REACHED THE DESTROY ROUTE!');
   // destroy blog
-  Blog.findByIdAndRemove(req.params.id, (req, res) => {
+  Blog.findByIdAndRemove(req.params.id, (err) => {
     if(err) {
         res.redirect('/blogs');
     } else {
