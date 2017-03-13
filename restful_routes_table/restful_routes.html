@@ -21,17 +21,47 @@
           <th>HTTP Verb</th>
           <th>Purpose</th>
         </tr>
-        <tr>
+        <tr class="active">
           <td>Index</td>
           <td>/posts</td>
           <td>GET</td>
           <td>Lists all posts</td>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr class="success">
+          <td>New</td>
+          <td>/posts/new</td>
+          <td>GET</td>
+          <td>Show new post form</td>
+        </tr>
+        <tr class="success">
+          <td>Create</td>
+          <td>/posts</td>
+          <td>POST</td>
+          <td>Create a new post, then redirect somewhere</td>
+        </tr>
+        <tr class="info">
+          <td>Show</td>
+          <td>/posts/:id</td>
+          <td>GET</td>
+          <td>Show info about one specific post</td>
+        </tr>
+        <tr class="warning">
+          <td>Edit</td>
+          <td>/post/:id/edit</td>
+          <td>GET</td>
+          <td>Show edit form for one post</td>
+        </tr>
+        <tr class="warning">
+          <td>Update</td>
+          <td>/posts/:id</td>
+          <td>PUT</td>
+          <td>Update a particular post, then redirect somewhere</td>
+        </tr>
+        <tr class="danger">
+          <td>Destroy</td>
+          <td>/posts/:id</td>
+          <td>DELETE</td>
+          <td>Delete a particular post, then redirect somewhere</td>
         </tr>
       </table>
     </div>
