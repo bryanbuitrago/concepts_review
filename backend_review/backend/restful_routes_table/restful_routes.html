@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RESTFUL ROUTING</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="restful_routes.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>RESTFul Routing</h1>
+      <p>A table of all 7 RESTful routes</p>
+    </div>
+    <div class="table">
+      <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+          <th>Path</th>
+          <th>HTTP Verb</th>
+          <th>Purpose</th>
+        </tr>
+        <tr class="active">
+          <td>Index</td>
+          <td>/posts</td>
+          <td>GET</td>
+          <td>Lists all posts</td>
+        </tr>
+        <tr class="success">
+          <td>New</td>
+          <td>/posts/new</td>
+          <td>GET</td>
+          <td>Show new post form</td>
+        </tr>
+        <tr class="success">
+          <td>Create</td>
+          <td>/posts</td>
+          <td>POST</td>
+          <td>Create a new post, then redirect somewhere</td>
+        </tr>
+        <tr class="info">
+          <td>Show</td>
+          <td>/posts/:id</td>
+          <td>GET</td>
+          <td>Show info about one specific post</td>
+        </tr>
+        <tr class="warning">
+          <td>Edit</td>
+          <td>/post/:id/edit</td>
+          <td>GET</td>
+          <td>Show edit form for one post</td>
+        </tr>
+        <tr class="warning">
+          <td>Update</td>
+          <td>/posts/:id</td>
+          <td>PUT</td>
+          <td>Update a particular post, then redirect somewhere</td>
+        </tr>
+        <tr class="danger">
+          <td>Destroy</td>
+          <td>/posts/:id</td>
+          <td>DELETE</td>
+          <td>Delete a particular post, then redirect somewhere</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+</body>
+</html>
