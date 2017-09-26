@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Grid</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+      .pink {
+        background: pink;
+        border: 1px solid black;
+      }
+
+      .green {
+          background: green;
+          border: 1px dashed black;
+          height: 50px;
+      }
+
+      .blue {
+        background: #3399ff;
+        border: 1px solid black;
+      }
+
+      .yellow {
+        background: yellow;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =========== Part 1 =========== -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-lg-6 yellow">COL LG 6</div>
+        <div class="col-lg-6 yellow">COL LG 6</div>
+
+        <div class="col-lg-2 blue">COL LG 2</div>
+        <div class="col-lg-8 blue">COL LG 8</div>
+        <div class="col-lg-2 blue">COL LG 2</div>
+
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+        <div class="col-lg-1 pink">COL LG 1</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 green">COL LG 4</div>
+        <div class="col-lg-4 green">COL LG 4</div>
+        <div class="col-lg-4 green">COL LG 4</div>
+      </div>
+    </div> -->
+
+<!-- ======================================================================== -->
+
+    <!-- ====== PART 2: Resize at md screen ===== -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+        <div class="col-lg-1 col-md-2 pink">COL LG 1</div>
+      </div>
+    </div> -->
+    <!-- ======================================================================== -->
+
+    <!-- ====== PART 3: NESTED GRID ===== -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 pink">
+          <div class="row">
+            <div class="col-lg-6 green">FIRST HALF</div>
+            <div class="col-lg-6 green">OTHER HALF</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 pink">TOUR DATE!</div>
+        <div class="col-md-3 col-sm-6 pink">TOUR DATE!</div>
+        <div class="col-md-3 col-sm-6 pink">
+          <div class="row">
+            <div class="col-lg-2 green"></div>
+            <div class="col-lg-2 green"></div>
+            <div class="col-lg-2 green"></div>
+            <div class="col-lg-2 green"></div>
+            <div class="col-lg-2 green"></div>
+            <div class="col-lg-2 green"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
